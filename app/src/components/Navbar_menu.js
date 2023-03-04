@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logo_full from '../assets/logo-full.png';
 import Image_profile from '../assets/profile.png';
+import { AiOutlineMenu, AiOutlineDown } from "react-icons/ai";
 
 const Navbar_menu = (prop) => {
     return (
@@ -15,28 +16,34 @@ const Navbar_menu = (prop) => {
                         className="d-inline-block align-top"
                     />
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle aria-controls="basic-navbar-nav" >
+                    <AiOutlineMenu
+                        color="royalblue"
+                    />
+                </Navbar.Toggle>
+
                 <Navbar.Collapse id="basic-navbar-nav" >
                     <Nav className="me-auto" style={{ gap: '50px', marginLeft: '10%' }}>
                         <Nav.Link href="#explore-products">Explore products</Nav.Link>
                         <Nav.Link href="#product-design">Product design</Nav.Link>
-                        <Nav.Link href="#procing">Procing</Nav.Link>
+                        <Nav.Link href="#procing">Procing <i class="bi bi-hdd-stack"></i></Nav.Link>
                     </Nav>
-                    <Nav.Link href="#link" >Logout</Nav.Link>
-                    <NavDropdown
-                        title={
-                            <img
-                                src={Image_profile}
-                                width="30"
-                                height="30"
-                                className="d-inline-block align-top "
-                            />
-                        }
-                        style={{ marginLeft: '10px' }}
-                        id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
+                  
+                    <Nav.Link href="#link" style={{marginLeft: '10%' }} >Logout</Nav.Link>
+                        <NavDropdown
+                            title={
+                                <img
+                                    src={Image_profile}
+                                    width="30"
+                                    height="30"
+                                    className="d-inline-block align-center "
+                                />
+                            }
+                            style={prop.width < 991 ? { marginLeft: '10%' }:{marginLeft: '10px'}}
+                            id="basic-nav-dropdown">
+                            <NavDropdown.Item href="#">Profile</NavDropdown.Item>
 
-                    </NavDropdown>
+                        </NavDropdown>
                 </Navbar.Collapse>
 
             </Container>

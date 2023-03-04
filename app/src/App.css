@@ -44,6 +44,7 @@
 
 .navbar-toggler:focus {
   border: 0px !important;
+  box-shadow: 0 0 0 0;
 }
 
 .nav-link {

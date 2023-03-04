@@ -2,41 +2,32 @@ import React, { useEffect, useState } from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table_work from '../assets/click-through-rate.png'
-function getWindowSize() {
-    const { innerWidth, innerHeight } = window;
-    return { innerWidth, innerHeight };
-}
 const Boxfrst = (prop) => {
-    const [windowSize, setWindowSize] = useState(getWindowSize());
-    const [styleReverse, setStylereverse] = useState({ alignItems: 'center', });
+    const [styleReverse, setStylereverse] = useState(window.innerWidth < 991 ?
+        {
+            flexDirection: 'column-reverse',
+            alignItems: 'center',
+        } :
+        { alignItems: 'center', });
     useEffect(() => {
-        function handleWindowResize() {
-            setWindowSize(getWindowSize());
-        }
-        if (!styleReverse?.flexDirection && windowSize.innerWidth <= 991) {
+        if (prop.width < 991) {
             setStylereverse({
                 flexDirection: 'column-reverse',
                 alignItems: 'center',
             });
-        } else if (windowSize.innerWidth > 1000) {
+        } else {
             setStylereverse({
                 alignItems: 'center',
             })
-            // setSmcurrent(false);
         }
-        window.addEventListener('resize', handleWindowResize);
-
-        return () => {
-            window.removeEventListener('resize', handleWindowResize);
-        };
-    }, [windowSize]);
+    }, [prop]);
 
     return (
-        <div style={styles.background} class=" py-5 container-xl ">
+        <div style={styles.background} className=" py-5 container-xl ">
             <Row style={styleReverse}>
-                <Col sm={12} lg={6} class="text-start">
+                <Col sm={12} lg={6} className="text-start">
                     <Row >
-                        <h1 style={{ fontWeight: 600 }}>Higher click-through
+                        <h1 style={{ fontWeight: 600,width:'500px' }}>Higher click-through
                             rates for your product
                         </h1>
                     </Row>
@@ -49,6 +40,7 @@ const Boxfrst = (prop) => {
                 <Col sm={12} lg={6}>
                     <img
                         src={Table_work}
+                        style={{ maxWidth: '99%', maxHeight: '99%' }}
                         className="d-inline-block align-top my-4"
                     />
                 </Col>
