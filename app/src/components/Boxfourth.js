@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 const BoxfourthMobile = (prop) => {
     return (
         <>
-            <div className='bg-light ' style={prop.width < 991 ? {} : { paddingTop: '20px' }}>
+            <div className='bg-light ' style={prop.width < 991 ? {} : { paddingTop: '50px' }}>
                 <Row style={{ gap: '10px' }} className="justify-content-center">
                     <Col sm={12} lg={4} >
                         <div class=" mb-5 d-flex flex-wrap justify-content-center" >
